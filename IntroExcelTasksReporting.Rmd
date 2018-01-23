@@ -1,0 +1,138 @@
+---
+title: "An introduction to Common Excel Tasks & Reporting in R"
+output: 
+  html_document: 
+    highlight: textmate
+    toc: yes
+    toc_float: 
+      collapsed: no
+    theme: cosmo
+---
+
+## Introduction
+
+R is a powerful programming language for statistical computing with many packages and tools.
+
+The goal of this article is to arm you with tools and techniques for Common Excel Tasks & Reporting in R
+
+We'll cover the main approaches below:
+
+1. **Viewing Data Frames**
+
+2. **Importing Data**
+
+3. **Calculated Columns**
+
+4. **Look ups**
+
+5. **Graphics**
+
+6. **Pivot Tables**
+
+7. **Sharing Reports**
+
+## Viewing Data Frames
+- [https://support.rstudio.com/hc/en-us/articles/205175388-Using-the-Data-Viewer](https://support.rstudio.com/hc/en-us/articles/205175388-Using-the-Data-Viewer)
+- [https://rviews.rstudio.com/2016/11/11/easy-tricks-you-mightve-missed/](https://rviews.rstudio.com/2016/11/11/easy-tricks-you-mightve-missed/)
+- [http://rmarkdown.rstudio.com/r_notebooks.html](http://rmarkdown.rstudio.com/r_notebooks.html)
+- [http://www.htmlwidgets.org/showcase_datatables.html](http://www.htmlwidgets.org/showcase_datatables.html)
+- Demo - View(starbucks)
+
+## Importing Data
+- [https://blog.rstudio.org/2016/11/01/announcing-rstudio-v1-0/](https://blog.rstudio.org/2016/11/01/announcing-rstudio-v1-0/)
+- [https://www.rstudio.com/resources/cheatsheets/](https://www.rstudio.com/resources/cheatsheets/)
+- [https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio)
+- [https://blog.rstudio.org/2016/03/24/tibble-1-0-0/](https://blog.rstudio.org/2016/03/24/tibble-1-0-0/)
+
+## Importing Data 2
+- When you use the ‘readr’ package, your data is imported automatically as a tibble
+- Can also use as.matrix function to convert. Can verify it was converted using the typeof and class functions.
+- typeof(starbucks)
+- class(starbucks)
+- head(starbucks)  # Displays the first few rows
+- tail(starbucks)  # Displays the last rows
+- str(starbucks)   # Tells you whether the variables are continuous or categorical
+- dim(starbucks)   # Displays number of rows and columns
+- summary(starbucks) # Gives you a summary of the data
+- summary(starbucks$Latitude) # By using the dollar sign, you refer to a particular variable from your dataset
+- Demo
+
+## dplyr Intro: basic data manipulation verbs
+- [https://districtdatalabs.silvrback.com/intro-to-r-for-microsoft-excel-users](https://districtdatalabs.silvrback.com/intro-to-r-for-microsoft-excel-users)
+- Command interface is simple
+- Its use of ‘pipe’ made the data analysis pipeline readable for anybody
+- Functionality it provides is already comprehensive and practical for real use cases especially when combined with tidyr
+- Performance is blazing fast
+
+## dplyr: key items
+
+- Tibbles are data frames but they tweak some older behaviours to make life a little easier 
+- A type of data frame common throughout tidyverse packages
+- Important dplyr verbs to remember
+
+## dplyr further reading
+
+- https://rpubs.com/bradleyboehmke/data_wrangling
+- https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html
+- https://rpubs.com/minebocek/rladies-dplyr-tidyr
+- Why do I use dplyr?
+- Great for data exploration and transformation
+- Intuitive to write and easy to read, especially when using the “chaining” syntax (covered below)
+- Fast on data frames
+- syntax is consistent and simple
+  
+## dplyr rules
+
+- https://rpubs.com/minebocek/rladies-dplyr-tidyr
+- First argument is a data frame
+- Subsequent arguments say what to do with data frame
+- Always return a data frame
+- Avoid modify in place
+
+## Calculated Columns with dplyr
+- dplyr
+- mutate function on the diamonds data set to multiply length, width, and depth
+- diamonds <- mutate(diamonds, cubic=length*width*depth)
+
+## Look ups with dplyr: key items
+- In R, we can do this using the merge function
+- Seven dplyr verbs	& description - fundamental functions of data transformation
+- select()	select columns/variables
+- filter()	filter rows / provides basic filtering capabilities
+- arrange()	re-order or arrange rows /ordering data
+- mutate()	create new columns/variables
+- summarise()	summarise values/data by functions of choice
+- group_by()	allows for group operations in the “split-apply-combine” concept / groups data by categorical levels
+
+## join() joining separate dataframes
+- Join scenarios""
+- inner_join
+- semi_join
+- left_join
+- anti_join
+- inner_join
+- semi_join
+- left_join
+- anti_join
+- full_join
+
+## Graphics with ggplot2
+
+- exmaples
+- http://www.cookbook-r.com/Graphs/
+- https://rpubs.com/hadley/ggplot2-toolbox
+- [https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+
+## ggplot2
+ 
+- http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/
+- The ggplot2 library is a phenomenal tool for creating graphics in R
+- RColorBrewer: A package of color palettes
+- https://web.stanford.edu/class/stats101/intro/intro-lab01.html
+
+## Pivot Tables
+- rpivotTable: pivottable for R
+- [https://github.com/smartinsightsfromdata/rpivotTable](https://github.com/smartinsightsfromdata/rpivotTable)
+- [https://cran.r-project.org/web/packages/rpivotTable/](https://cran.r-project.org/web/packages/rpivotTable/)
+- [https://github.com/smartinsightsfromdata/rpivotTable/tree/master/inst/examples](https://github.com/smartinsightsfromdata/rpivotTable/tree/master/inst/examples)
+- Demo
