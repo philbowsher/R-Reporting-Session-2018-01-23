@@ -40,7 +40,7 @@ starbucks
 
 ```
 
-Let's now subset it for WI
+Let's now subset it for PA
 ```{r}
 
 # Base R
@@ -50,8 +50,8 @@ Let's now subset it for WI
 # Without pipes
 # starbucks_MO <- filter(starbucks, Country== 'US', State=='VA')
 
-starbucks_WI <- starbucks %>%
-  filter(Country== 'US', State=='WI')%>% 
+starbucks_PA <- starbucks %>%
+  filter(Country== 'US', State=='PA')%>% 
   select(Brand, `Store Number`, `Ownership Type`, City,	State,	Zip, Country, Coordinates,	Latitude,	Longitude, Name)
 
 ```
@@ -60,8 +60,8 @@ starbucks_WI <- starbucks %>%
 
 leaflet() %>% addTiles() %>% setView(-89.360922, 43.226851, zoom = 12) %>% 
 
-addMarkers(data = starbucks_WI, lat = ~ Latitude, lng = ~ Longitude, popup = starbucks_WI$Name) %>%
-  addPopups(-89.360922, 43.226851, 'the <b> spot</b>')
+addMarkers(data = starbucks_PA, lat = ~ Latitude, lng = ~ Longitude, popup = starbucks_PA$Name) %>%
+  addPopups(-80.003440, 40.441910, 'the <b> spot</b>')
 
 ```
 
