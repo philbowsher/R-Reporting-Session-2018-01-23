@@ -82,7 +82,7 @@ class(starbucks_R_C_P)
 ```
 Excel
 ```{r}
-starbucks_WI_R_C_P <- starbucks_WI %>%
+starbucks_PA_R_C_P <- starbucks_PA %>%
   left_join(starbucks_R_C_P, by = 'Store Number')
 
 #rename(starbucks_R_C_P, StoreNumber = `Store Number`)
@@ -90,14 +90,14 @@ starbucks_WI_R_C_P <- starbucks_WI %>%
 #starbucks_MO_R_C_P$`Ownership Type.f` <- #factor(starbucks_MO_R_C_P$`Ownership Type`)
 #is.factor(starbucks_MO_R_C_P$`Ownership Type.f`)
 
-starbucks_WI_R_C_P
+starbucks_PA_R_C_P
 
 ```
 
 
 
 ```{r}
-ggplot(data = starbucks_WI_R_C_P) +
+ggplot(data = starbucks_PA_R_C_P) +
   geom_bar(mapping = aes(x = `Ownership Type`))
 ```
 
@@ -112,7 +112,7 @@ ggplot(data = starbucks) +
 
 options(scipen=10000)
 
-ggplot(starbucks_WI_R_C_P, aes(P)) + 
+ggplot(starbucks_PA_R_C_P, aes(P)) + 
   geom_histogram()
 
 ```
@@ -121,7 +121,7 @@ ggplot(starbucks_WI_R_C_P, aes(P)) +
 
 options(scipen=10000)
 
-ggplot(starbucks_WI_R_C_P, aes(x=C, y=`Ownership Type`)) + geom_point()
+ggplot(starbucks_PA_R_C_P, aes(x=C, y=`Ownership Type`)) + geom_point()
 
 ```
 
